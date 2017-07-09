@@ -1,0 +1,10 @@
+{
+  "name": "wp-popular-plugins",
+  "version": "1.0.0",
+  "main": "fetcher.js",
+  "author": "Thiago Loureiro",
+  "license": "WTFPL",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
