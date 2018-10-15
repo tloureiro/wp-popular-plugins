@@ -18,7 +18,7 @@ for(let i=0; i<(pluginsQtd/250); i++) {
         request: {
           browse: 'popular',
           per_page: parseInt(pluginsQtd / 250) === i ? pluginsQtd - (250 * i): 250,
-          page: i,
+          page: i + 1,
         }
       }
     }, (err, response, body) => {
