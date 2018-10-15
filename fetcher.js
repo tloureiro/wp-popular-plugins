@@ -4,7 +4,7 @@ const endpointURL = 'http://api.wordpress.org/plugins/info/1.1/';
 
 let plugins = [];
 
-const pluginsQtd = 10000;
+const pluginsQtd = 1000;
 
 let requestPromises = [];
 
@@ -24,8 +24,10 @@ for(let i=0; i<(pluginsQtd/250); i++) {
     }, (err, response, body) => {
       let obj = JSON.parse(body);
 
-      for (let plugin of obj.plugins) {
-        let {name, version, author, requires, rating, num_ratings, downloaded, last_updated, homepage, download_link} = plugin;
+      let temp_plugins = Object.entries(obj.plugins);
+
+      for (let plugin of temp_plugins) {
+        let {name, version, author, requires, rating, num_ratings, downloaded, last_updated, homepage, download_link} = plugin[1];
         plugins.push({name, version, author, requires, rating, num_ratings, downloaded, last_updated, homepage, download_link});
       }
 
